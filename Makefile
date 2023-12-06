@@ -1,5 +1,8 @@
 NAME = minishell
 
+LIBFT		:= libft.a
+LIBFT_PATH	:= "libft"
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread
 
@@ -20,14 +23,19 @@ all: $(NAME)
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(NAME): $(OBJS) 
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(PTHREAD_FLAGS)
+$(LIBFT):
+	@make -C $(LIBFT_PATH)
+
+$(NAME): $(LIBFT) $(OBJS) 
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L$(LIBFT_PATH) $(PTHREAD_FLAGS)
 
 clean:
-	$(RM) $(RMFLAG) $(OBJS)
+	@make clean -C $(LIBFT_PATH)
+	@rm -f $(OBJS)
 
 fclean: clean
-	$(RM) $(RMFLAG) $(NAME)
+	@make fclean -C $(LIBFT_PATH)
+	@rm -f $(NAME)
 
 re: fclean all
 
