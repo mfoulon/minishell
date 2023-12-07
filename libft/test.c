@@ -88,7 +88,7 @@ char	*ft_clean_empty_strs(char *str)
 }
 
 int main() {
-    char input[] = "Hello '' World '\"' Extra '' Quotes";
+    char input[] = "";
     printf("Input String: %s\n", input);
 
     char *output = ft_clean_empty_strs(input);
