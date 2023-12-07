@@ -42,5 +42,18 @@ typedef struct s_token
 	struct s_token		*prev;
 }	t_token;
 
+//	Functions
+
+// Expander
+char 	**expander_split(char const *s);
+void	free_char2(char **tofree);
+void	free_char3(char ***tofree);
+char	*clean_empty_strs(char *str);
+char 	**expander(char *s);
+char    *handle_normal_str(char *s, size_t *i);
+char    *handle_dollar(char *s, size_t *i);
+char    *handle_dquotes(char *s, size_t *i);
+char    *handle_squotes(char *s, size_t *i);
+static char *handle_dquotes_str(char *s, size_t *i);
 
 #endif

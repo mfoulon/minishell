@@ -14,7 +14,12 @@ ifeq ($(shell uname), Linux)
 endif
 
 SRCS = \
-	main.c
+	main.c \
+	expand/asterisk.c \
+	expand/expander_split.c \
+	expand/expander_utils.c \
+	expand/expander.c \
+	expand/pre_expander.c
 
 OBJS = $(SRCS:.c=.o)
 

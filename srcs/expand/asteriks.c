@@ -1,4 +1,4 @@
-#include "../minishell.h"
+#include "../../includes/minishell.h"
 
 static void	ft_handle_pattern_quotes(char **pattern, char *quotes)
 {
