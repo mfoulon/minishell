@@ -18,14 +18,14 @@ char    *handle_squotes(char *s, size_t *i)
     (*i)++;
     while (s[*i] != '\'')
         (*i)++;
-    (i*)++;
+    (*i)++;
     return (ft_substr(s, start, *i - start));
 }
 
 char    *handle_dquotes(char *s, size_t *i)
 {
     char    *res;
-    res = ft_strdup('\"');
+    res = ft_strdup("\"");
     (*i)++;
     while (res[*i] != '\"')
     {
@@ -35,7 +35,7 @@ char    *handle_dquotes(char *s, size_t *i)
             res = ft_strjoin_free(res, handle_dquotes_str(s, i));
     }
     (*i)++;
-    return (ft_strjoin_free(res, ft_strdup('\"')));
+    return (ft_strjoin_free(res, ft_strdup("\"")));
 }
 
 char    *handle_dollar(char *s, size_t *i)

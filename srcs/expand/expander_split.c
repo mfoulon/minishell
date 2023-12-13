@@ -26,7 +26,7 @@ static void skip_word(char const *s, size_t *i)
 // function to copy the string values between two s-quotes into the precedently
 // created double array **strs
 
-static void words_filler(const char *s, char *strs, size_t *i, size_t j)
+static void words_filler(const char *s, char **strs, size_t *i, size_t j)
 {
     size_t  k;
     char    q;
@@ -50,7 +50,7 @@ static void words_filler(const char *s, char *strs, size_t *i, size_t j)
 // fills each "words" into the precedently created double array **strs
 // and returns it
 
-static char filler(char const *s, char **strs)
+static char **filler(char const *s, char **strs)
 {
     size_t  i;
     size_t  j;
@@ -125,6 +125,6 @@ char **expander_split(char const *s)
     tofree = strs;
     strs = allocater(s, strs);
     if (!strs || ! count)
-        return (free_char3(tofree), NULL);
+        return (free_char2(tofree), NULL);
     return (filler(s, strs));
 }
