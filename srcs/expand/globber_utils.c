@@ -35,7 +35,7 @@ size_t  match_count(char *pattern)
   entry = readdir(dir);
   while(entry)
   {
-    if (match_stars(pattern, entry->d_name))
+    if (is_star_match(pattern, entry->d_name))
       match_count++;
     entry = readdir(dir);
   }

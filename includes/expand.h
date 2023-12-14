@@ -19,6 +19,6 @@ bool  contains_asterisk(char *s);
 size_t  ft_arrlen(char **s);
 size_t  match_count(char *pattern);
 char  **join_mult_arrs(char ***s);
+char    **globber(char **expanded);
 
  #endif
-

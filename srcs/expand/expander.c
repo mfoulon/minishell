@@ -34,7 +34,7 @@ char **expander(char *s)
     if (!s)
         return (NULL);
     expanded = expander_split(s);
-    free(str);
+    free(s);
     if (!expanded)
         return (NULL);
     res = globber(expanded);
