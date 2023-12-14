@@ -3,7 +3,7 @@
 static bool match_visibility(char *pattern, char *s)
 {
     if ((pattern[0] == '.' && s[0] == '.') || pattern[0] != '.' && s[0] != '.')
-        return (true)
+        return (true);
     return (false);
 }
 
