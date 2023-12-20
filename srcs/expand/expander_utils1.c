@@ -64,7 +64,7 @@ char	*clean_empty_strs(char *str)
 		else
 			tmp[j++] = str[i++];
 	}
-	//free(str);
+	free(str);
 	dstsize = ft_strlen(tmp) + 1;
 	res = ft_calloc(dstsize, sizeof(char));
 	return (ft_strlcpy(res, tmp, dstsize), free(tmp), res);

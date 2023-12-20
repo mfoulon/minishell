@@ -33,5 +33,7 @@ size_t  ft_arrlen(char **s);
 size_t  match_count(char *pattern);
 char  **join_mult_arrs(char ***s);
 char    **globber(char **expanded);
+void    expand_heredoc(char *s, int fd);
+char    *strip_quotes(char *s);
 
  #endif
