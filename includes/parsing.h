@@ -13,6 +13,8 @@
 #ifndef PARSING_H
 # define PARSING_H
 
+#include "minishell.h"
+
 typedef enum	e_node_type{
 	N_CMD,
 	N_PIPE,
@@ -54,5 +56,10 @@ typedef struct	s_node
 	struct s_node	*right;
 }	t_node;
 
+typedef	struct	s_parse_err
+{
+	t_parse_err_type	type;
+	char					*s;
+}	t_parse_err;
 
 # endif

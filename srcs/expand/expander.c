@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   expander.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mafoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/20 15:23:55 by mafoulon          #+#    #+#             */
+/*   Updated: 2023/12/20 15:23:56 by mafoulon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 static char  *pre_expander(char *s)
@@ -13,8 +25,8 @@ static char  *pre_expander(char *s)
             res = ft_strjoin_free(res, handle_squotes(s, &i));
         else if (s[i] =='"')
             res = ft_strjoin_free(res, handle_dquotes(s, &i));
-        //else if (s[i] =='$')
-            //res = ft_strjoin_free(res, handle_dollar(s, &i));
+        else if (s[i] =='$')
+            res = ft_strjoin_free(res, handle_dollar(s, &i));
         else
             res = ft_strjoin_free(res, handle_normal_str(s, &i));
     }

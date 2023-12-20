@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "parse.h"
+#include "../../includes/minishell.h"
 
 t_node	*parse(void)
 {

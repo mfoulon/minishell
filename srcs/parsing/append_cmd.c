@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/minishell.h"
+
 t_bool	get_io_list(t_io_node **io_list)
 {
 	t_token_type		redir_type;

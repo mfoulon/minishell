@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/minishell.h"
+
 t_bool	is_bin_op(t_token *token)
 {
 	if (!token)

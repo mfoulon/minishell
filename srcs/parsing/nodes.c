@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/minishell.h"
+
 t_node	*new_node(t_node_type type)
 {
 	t_node	*new_node;

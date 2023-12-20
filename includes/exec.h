@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EXEC_H
+# define EXEC_H
+
+#include "minishell.h"
+
 typedef enum e_err_msg
 {
 	ERRMSG_CMD_NOT_FOUND,
@@ -47,3 +52,5 @@ typedef enum e_ast_branch
 	BRANCH_L,
 	BRANCH_R
 }	t_ast_branch;
+
+ #endif

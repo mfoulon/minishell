@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   expander_utils1.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mafoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/20 15:24:09 by mafoulon          #+#    #+#             */
+/*   Updated: 2023/12/20 15:24:10 by mafoulon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 // frees a **char type of string
@@ -56,4 +68,11 @@ char	*clean_empty_strs(char *str)
 	dstsize = ft_strlen(tmp) + 1;
 	res = ft_calloc(dstsize, sizeof(char));
 	return (ft_strlcpy(res, tmp, dstsize), free(tmp), res);
+}
+
+bool	is_valid_char(char c)
+{
+	if (ft_isalnum(c) || c == '_')
+		return (true);
+	return (false);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "../../includes/minishell.h"
 
 void	set_parse_err(t_parse_err_type type)
 {
