@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minshell.h"
+#include "../../includes/minishell.h"
 
 void	*lst_first(void *lst)
 {

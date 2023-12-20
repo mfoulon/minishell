@@ -15,7 +15,8 @@
 
 #include "minishell.h"
 
-typedef enum	e_node_type{
+typedef enum	e_node_type
+{
 	N_CMD,
 	N_PIPE,
 	N_AND,
