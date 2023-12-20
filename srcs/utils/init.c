@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 15:04:01 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/14 15:08:35 by baptistevie      ###   ########.fr       */
+/*   Created: 2023/11/14 13:40:38 by baptistevie       #+#    #+#             */
+/*   Updated: 2023/11/14 14:29:28 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_bool	is_binoperand(t_token token)
-{
-	if (!token)
-		return (false);
-	return (token->token_type == T_PIPE
-			|| token->token_type == T_AND
-			|| token->token_type == T_OR)
-}
+#include "../../minishell.h"
 
+t_buffer_info	create_b_info(t_buffer_info *prev)
+{
+	t_buffer_info	*b_info;
+
+	b_info = malloc(sizeof(t_buffer_info));
+	if (!b_info)
+		return (NULL);
+	b_info->simp_q_nb = 0;
+	b_info->doub_q_nb = 0;
+	b_info->prev = prev;
+	b_info->next = NULL;
+	return (b_info);
+}

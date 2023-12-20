@@ -6,7 +6,7 @@
 /*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 12:16:15 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/11 18:41:07 by baptistevie      ###   ########.fr       */
+/*   Updated: 2023/12/18 11:06:18 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static t_token	create_token_list(char *line)
 			error_checker = !handle_separator(&line, token_list);
 		else
 			error_checker = !append_str(&line, token_list);	// fct to do
+	}
 	return (token_list);
 }
 
