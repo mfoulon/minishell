@@ -12,7 +12,7 @@
 
 #include "clear.h"
 
-static void	ft_del(void *ptr);
+static void	delete(void *ptr);
 void	    *ft_garbage_collector(void *ptr, t_bool clean);
 
 void	*ft_garbage_collector(void *ptr, t_bool clean)
@@ -21,7 +21,7 @@ void	*ft_garbage_collector(void *ptr, t_bool clean)
 
 	if (clean)
 	{
-		ft_lstclear(&garbage_list, ft_del);
+		ft_lstclear(&garbage_list, delete);
 		return (NULL);
 	}
 	else
@@ -31,7 +31,7 @@ void	*ft_garbage_collector(void *ptr, t_bool clean)
 	}
 }
 
-static void	ft_del(void *ptr)
+static void	delete(void *ptr)
 {
 	free(ptr);
 	ptr = NULL;

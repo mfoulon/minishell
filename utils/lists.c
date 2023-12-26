@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_builtin.c                                      :+:      :+:    :+:   */
+/*   lists.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 15:41:13 by bvieilhe          #+#    #+#             */
-/*   Updated: 2023/12/20 16:11:30 by bvieilhe         ###   ########.fr       */
+/*   Created: 2023/11/14 15:12:22 by baptistevie       #+#    #+#             */
+/*   Updated: 2023/11/14 15:15:46 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "../../minshell.h"
 
-t_err_no  env_builtin(void)
+void	*lst_first(void *lst)
 {
-	t_env	*list;
-
-	list = g_minishell.env_lst;
-	while (list)
-	{
-		if (list->value != NULL)
-			printf("%s=%s\n", list->key, list->value);
-		list = list->next;
-	}
-	return (ENO_SUCCESS);
+	if (!lst)
+		return (NULL);
+	while (lst->prev)
+		lst = lst->prev;
+	return (lst);
 }

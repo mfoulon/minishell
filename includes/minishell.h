@@ -24,6 +24,7 @@
 # include <fcntl.h>
 # include <dirent.h>
 # include <string.h>
+# include <limits.h>
 # include <errno.h>
 # include <termios.h>
 # include <readline/readline.h>

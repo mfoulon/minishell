@@ -16,7 +16,7 @@
 #include "minishell.h"
 
 /*  clean_minishell.c */
-void	clean_minisell(void);
+void	clean_minishell(void);
 
 /*  clear_parser.c */
 void	clear_io_list(t_io_list **lst);

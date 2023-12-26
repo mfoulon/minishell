@@ -23,7 +23,7 @@ void	clear_io_list(t_io_list **lst)
 	while (curr_node)
 	{
 		free(curr_node->value);
-		ft_free_char2(curr_node->expanded_value);
+		free_char2(curr_node->exp_value);
 		next = curr_node->next;
 		free(curr_node);
 		curr_node = next;
@@ -36,8 +36,9 @@ void	clear_cmd_node(t_node *node)
 	if (!node)
 		return ;
 	clear_io_list(&(node->io_list));
-	free(node->args);
-	ft_free_char2(node->expanded_args);
+	free(node->value);
+	// was -> free(node->args);
+	free_char2(node->exp_value);
 }
 
 void	recursive_clear_ast(t_node *node)
@@ -60,5 +61,6 @@ void	clear_ast(t_node **ast)
 {
 	recursive_clear_ast(*ast);
 	*ast = NULL;
-	clear_token_list(&g_minishell.tokens);
+	clear_io_list(&g_minishell.ast);
+	// was -> clear_io_list(&g_minishell.tokens);
 }

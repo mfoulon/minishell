@@ -27,6 +27,7 @@ SRCS = \
 	./ft_strlcpy.c \
 	./ft_strlcat.c \
 	./ft_strchr.c \
+	./ft_strcmp.c \
 	./ft_strrchr.c \
 	./ft_strncmp.c \
 	./ft_strnstr.c \

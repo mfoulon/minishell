@@ -39,7 +39,7 @@ char	*extract_envlst_key(char *str)
 	while (str[i])
 	{
 		if (str[i] == '=')
-			return (garbage_collector(ft_substr(str, 0, i), false));
+			return (ft_garbage_collector(ft_substr(str, 0, i), false));
 		i++;
 	}
 	return (ft_strdup(str));

@@ -14,13 +14,13 @@
 
 static void	clear_envlst(void);
 
-void	clean_minisell(void)
+void	clean_minishell(void)
 {
-	garbage_collector(NULL, true);
+	ft_garbage_collector(NULL, true);
 	clear_ast(&g_minishell.ast);
 	clear_envlst();
 	rl_clear_history();
-	tcsetattr(STDIN_FILENO, TCSANOW, &g_minishell.original_term);
+	tcsetattr(STDIN_FILENO, TCSANOW, &g_minishell.og_term);
 }
 
 static void	clear_envlst(void)
@@ -28,13 +28,13 @@ static void	clear_envlst(void)
 	t_env	*envlst;
 	t_env	*envlst_tofree;
 
-	envlst = g_minishell.envlst;
+	envlst = g_minishell.env_lst;
 	while (envlst)
 	{
 		envlst_tofree = envlst;
 		envlst = envlst->next;
 		free(envlst_tofree);
 	}
-	g_minishell.envlst = NULL;
+	g_minishell.env_lst = NULL;
 }
 

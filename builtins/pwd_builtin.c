@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_builtin.c                                      :+:      :+:    :+:   */
+/*   pwd_builtin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 15:41:13 by bvieilhe          #+#    #+#             */
-/*   Updated: 2023/12/20 16:11:30 by bvieilhe         ###   ########.fr       */
+/*   Created: 2023/12/23 00:02:29 by baptistevie       #+#    #+#             */
+/*   Updated: 2023/12/23 00:06:40 by baptistevie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 
-t_err_no  env_builtin(void)
+t_err_no	ft_pwd(void)
 {
-	t_env	*list;
+	char	*cwd;
 
-	list = g_minishell.env_lst;
-	while (list)
-	{
-		if (list->value != NULL)
-			printf("%s=%s\n", list->key, list->value);
-		list = list->next;
-	}
+	cwd = NULL;
+	cwd = getcwd(cwd, 0);
+	if (!cwd)
+		return (ENO_GENERAL);
+	ft_putstr_fd(cwd, 1);
+	ft_putstr_fd("\n", 1);
 	return (ENO_SUCCESS);
 }
