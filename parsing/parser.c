@@ -69,7 +69,7 @@ t_node	*combine(t_token_type operator, t_node *left, t_node *right)
 
 	if (g_minishell.parse_err.type)
 		return (NULL);
-	node = new_node(operator);
+	node = new_node(get_node_type(operator));
 	if (!node)
 		return (set_parse_err(E_MEM), NULL);
 	node->left = left;
