@@ -21,6 +21,8 @@ t_node	*parse(void)
 	ast = expression(0);
 	if (g_minishell.curr_token)
 		return (set_parse_err(E_SYNTAX), ast);
+	printf("# __DEBUG : PRINTING AST . . .\n");
+	print_ast(ast, 0);
 	return (ast);
 }
 

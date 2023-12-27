@@ -26,7 +26,7 @@ t_bool	is_separator(char *str)
 	return (is_space(*str)
 		|| *str == '<' || *str == '>'
 		|| *str == '|' || *str == '\0'
-		||!ft_strncmp(str, "&&", 2));
+		|| ((*(str + 1) && !ft_strncmp(str, "&&", 2))));
 }
 
 void	skip_spaces(char **line)
