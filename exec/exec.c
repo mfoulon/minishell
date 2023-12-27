@@ -48,7 +48,7 @@ static t_err_no	exec_pipe(t_node *tree)
 	int			fd[2];
 	pid_t		pid_l;
 	pid_t		pid_r;
-	
+
 	g_minishell.signint_child = true;
 	pipe(fd);
 	pid_l = fork();
@@ -56,16 +56,17 @@ static t_err_no	exec_pipe(t_node *tree)
 		exec_pipe_child(tree->left, fd, BRANCH_L);
 	else
 	{
-    pid_r = fork();
-    if (!pid_r)
-      exec_pipe_child(tree->right, fd, BRANCH_R);
-    else
-    {
-		  (close(fd[0]), close(fd[1]),
-			  waitpid(pid_l, (int*)&status, 0), waitpid(pid_r, (int*)&status, 0));
-		  g_minishell.signint_child = false;
-		  return (get_exit_status(status));
-    }
+		pid_r = fork();
+		if (!pid_r)
+			exec_pipe_child(tree->right, fd, BRANCH_R);
+		else
+		{
+			(close(fd[0]), close(fd[1]),
+				waitpid(pid_l, (int*)&status, 0),
+				waitpid(pid_r, (int*)&status, 0));
+			g_minishell.signint_child = false;
+			return (get_exit_status(status));
+		}
 	}
 	return (ENO_GENERAL);
 }

@@ -12,7 +12,7 @@
 
 #include "builtins.h"
 
-t_err_no  env_builtin(void)
+t_err_no	env_builtin(void)
 {
 	t_env	*list;
 

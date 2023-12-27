@@ -13,7 +13,7 @@
 #ifndef INIT_H
 # define INIT_H
 
-#include "minishell.h"
+# include "minishell.h"
 
 /*	env_utils.c  */
 char	*get_envlst_val(char *key);

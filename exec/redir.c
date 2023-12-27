@@ -25,8 +25,8 @@ t_err_no	check_redir(t_node *node)
 	while (tmp_io)
 	{
 		if ((tmp_io->type == IO_IN
-			|| tmp_io->type == IO_OUT
-			|| tmp_io->type == IO_APPEND)
+				|| tmp_io->type == IO_OUT
+				|| tmp_io->type == IO_APPEND)
 			&& redir_io(tmp_io, &tmp_status) != ENO_SUCCESS)
 			return (tmp_status);
 		else if (tmp_io->type == IO_HEREDOC)
@@ -39,12 +39,12 @@ t_err_no	check_redir(t_node *node)
 t_err_no	redir_io(t_io_list *io_list, t_err_no *status)
 {
 	int	fd;
-	
+
 	if (!io_list->exp_value || io_list->exp_value[1])
 	{
 		*status = print_and_ret_err((t_err){ENO_GENERAL,
-											ERRMSG_AMBIGUOUS,
-											io_list->value});
+				ERRMSG_AMBIGUOUS,
+				io_list->value});
 		return (*status);
 	}
 	open_file(io_list, &fd);
@@ -63,14 +63,14 @@ t_err_no	redir_io(t_io_list *io_list, t_err_no *status)
 	close(fd);
 	*status = ENO_SUCCESS;
 	return (*status);
-}// la fct a 25 lignes et une ligne (l56) a 80 chars manque juste les 5 args pour VRAIMENT utiliser la norme au max
+}
 
 void	open_file(t_io_list *io_list, int *fd)
 {
 	if (!io_list)
 	{
 		*fd = -1;
-		return;
+		return ;
 	}
 	if (io_list->type == IO_IN)
 		*fd = open(io_list->exp_value[0], O_RDONLY);

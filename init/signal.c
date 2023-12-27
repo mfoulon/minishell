@@ -29,7 +29,7 @@ void	init_signals(void)
 
 static void	handle_sigint(int n)
 {
-  (void)n;
+	(void)n;
 	if (g_minishell.signint_child)
 	{
 		ft_putstr_fd("\n", 1);
@@ -47,7 +47,6 @@ static void	handle_sigint(int n)
 
 void	handle_sigquit(int n)
 {
-  (void)n;
+	(void)n;
 	ft_putstr_fd("Quit: 3\n", 1);
 }
-

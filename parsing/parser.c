@@ -27,7 +27,7 @@ t_node	*get_cmd(void)
 {
 	if (g_minishell.parse_err.type)
 		return (NULL);
-  	if (is_bin_op() || g_minishell.curr_token->type == T_C_PARENT)
+	if (is_bin_op() || g_minishell.curr_token->type == T_C_PARENT)
 		return (set_parse_err(E_SYNTAX), NULL);
 	return (append_cmd());
 }
@@ -44,8 +44,7 @@ t_node	*expression(int min_prec)
 	left = get_cmd();
 	if (!left)
 		return (NULL);
-	while (is_bin_op() 
-		&& curr_token_prec() >= min_prec)
+	while (is_bin_op() && curr_token_prec() >= min_prec)
 	{
 		operator = g_minishell.curr_token->type;
 		get_next_token();

@@ -14,7 +14,7 @@
 
 t_bool	is_bin_op(void)
 {
-  t_token_type	type;
+	t_token_type	type;
 
 	if (!g_minishell.curr_token)
 		return (false);
@@ -29,9 +29,9 @@ t_bool	is_redir(t_token_type type)
 	if (!type)
 		return (false);
 	return (type == T_REDIR_IN
-			|| type == T_REDIR_OUT
-			|| type == T_APPEND_OUT
-			|| type == T_HEREDOC_IN);
+		|| type == T_REDIR_OUT
+		|| type == T_APPEND_OUT
+		|| type == T_HEREDOC_IN);
 }
 
 void	get_next_token(void)

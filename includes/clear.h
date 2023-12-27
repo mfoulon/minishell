@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear.h                                             :+:      :+:    :+:   */
+/*   clear.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #ifndef CLEAR_H
 # define CLEAR_H
 
-#include "minishell.h"
+# include "minishell.h"
 
 /*  clean_minishell.c */
 void	clean_minishell(void);

@@ -52,11 +52,11 @@ char	**expander(char *s)
 	res = globber(expanded);
 	if (!res)
 		return (NULL);
-  i = 0;
-  while (res[i])
-  {
-    res[i] = strip_quotes(res[i]);
-    i++;
-  }
+	i = 0;
+	while (res[i])
+	{
+		res[i] = strip_quotes(res[i]);
+		i++;
+	}
 	return (res);
 }

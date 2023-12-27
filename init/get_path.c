@@ -12,7 +12,7 @@
 
 #include "init.h"
 
-t_path	get_path(char *cmd);
+t_path			get_path(char *cmd);
 static t_path	get_env_path(char *path, char *cmd);
 
 t_path	get_path(char *cmd)

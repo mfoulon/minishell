@@ -30,7 +30,7 @@ t_err_no	exec_cmd(t_node	*node, t_bool piped)
 		tmp_status = check_redir(node);
 		if (tmp_status != ENO_SUCCESS)
 			return (reset_stds(piped), ENO_GENERAL);
-		tmp_status = exec_builtin(node->exp_value); //to do
+		tmp_status = exec_builtin(node->exp_value);
 		return (reset_stds(piped), tmp_status);
 	}
 	else
@@ -49,18 +49,18 @@ static t_err_no	exec_child(t_node *node)
 	{
 		tmp_status = check_redir(node);
 		if (tmp_status != ENO_SUCCESS)
-			(clean_minishell(), exit(ENO_GENERAL)); //to do
-		path_status = get_path((node->exp_value)[0]); //to do
+			(clean_minishell(), exit(ENO_GENERAL));
+		path_status = get_path((node->exp_value)[0]);
 		if (path_status.err.no != ENO_SUCCESS)
 		{
 			tmp_status = print_and_ret_err(path_status.err);
-			(clean_minishell(), exit(tmp_status)); //to do
+			(clean_minishell(), exit(tmp_status));
 		}
 		if (execve(path_status.path, node->exp_value, g_minishell.env)
 			== -1)
-			(clean_minishell(), exit(ENO_GENERAL));	//to do
+			(clean_minishell(), exit(ENO_GENERAL));
 	}
-	waitpid(fork_pid, (int*)&tmp_status, 0);
+	waitpid(fork_pid, (int *)&tmp_status, 0);
 	g_minishell.signint_child = false;
 	return (get_exit_status(tmp_status));
 }
@@ -68,7 +68,7 @@ static t_err_no	exec_child(t_node *node)
 void	reset_stds(t_bool piped)
 {
 	if (piped)
-		return;
+		return ;
 	dup2(g_minishell.stdin, 0);
 	dup2(g_minishell.stdout, 1);
 }

@@ -13,11 +13,10 @@
 #ifndef EXPAND_H
 # define EXPAND_H
 
-#include "minishell.h"
+# include "minishell.h"
 
 /*  asterisks.c  */
 t_bool	is_star_match(char *pattern, char *s);
-
 
 /*  expand_heredoc.c  */
 void	expand_heredoc(char *s, int fd);
@@ -52,4 +51,4 @@ char	*handle_normal_str(char *s, size_t *i);
 /*  quotes.c  */
 char	*strip_quotes(char *s);
 
- #endif
+#endif

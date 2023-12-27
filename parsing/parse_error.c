@@ -23,7 +23,7 @@ void	handle_parse_err(void)
 	t_token_type		token_type;
 	char				**types;
 
-	types = (char *[]){"T_STR", "|", "&&", "||", 
+	types = (char *[]){"T_STR", "|", "&&", "||",
 		"<", ">", ">>", "<<", "newline"};
 	type = g_minishell.parse_err.type;
 	(void)token_type;

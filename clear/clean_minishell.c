@@ -37,4 +37,3 @@ static void	clear_envlst(void)
 	}
 	g_minishell.env_lst = NULL;
 }
-

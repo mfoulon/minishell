@@ -30,7 +30,7 @@ void	clear_token_lst(t_token **lst)
 	*lst = NULL;
 }
 
-t_token		*tokenize(void)
+t_token	*tokenize(void)
 {
 	t_token			*token_list;
 	char			*line;
@@ -39,7 +39,7 @@ t_token		*tokenize(void)
 	token_list = token_handler(line);
 	free(line);
 	g_minishell.line = NULL;
-	return (token_list);	
+	return (token_list);
 }
 
 t_token	*token_handler(char *line)
@@ -52,7 +52,7 @@ t_token	*token_handler(char *line)
 	while (*line)
 	{
 		if (error_checker)
-			return(clear_token_lst(&token_list), NULL); // faire clean_token_lst
+			return (clear_token_lst(&token_list), NULL);
 		if (is_space(*line))
 			skip_spaces(&line);
 		else if (is_separator(line))

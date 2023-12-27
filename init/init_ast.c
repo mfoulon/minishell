@@ -12,7 +12,7 @@
 
 #include "init.h"
 
-static void	init_leaf(t_node *node);
+static void		init_leaf(t_node *node);
 static t_bool	leave_leaf(int fd[2], int *pid);
 
 void	init_ast(t_node *node)
@@ -48,8 +48,8 @@ static void	init_leaf(t_node *node)
 			g_minishell.signint_child = true;
 			pid = (signal(SIGQUIT, SIG_IGN), fork());
 			if (!pid)
-				handle_heredoc(io, fd); // to do
-			if (leave_leaf(fd, &pid)) // to do
+				handle_heredoc(io, fd);
+			if (leave_leaf(fd, &pid))
 				return ;
 			io->fd_heredoc = fd[0];
 		}

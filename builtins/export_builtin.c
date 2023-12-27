@@ -12,7 +12,7 @@
 
 #include "builtins.h"
 
-static void	export_list(void);
+static void		export_list(void);
 static t_err_no	export_err_msg(char *identifier);
 
 int	check_key(char *str)
@@ -84,7 +84,6 @@ static void	export_list(void)
 		list = list->next;
 	}
 }
-
 
 static t_err_no	export_err_msg(char *identifier)
 {

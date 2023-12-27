@@ -13,7 +13,7 @@
 #include "clear.h"
 
 static void	delete(void *ptr);
-void	    *ft_garbage_collector(void *ptr, t_bool clean);
+void		*ft_garbage_collector(void *ptr, t_bool clean);
 
 void	*ft_garbage_collector(void *ptr, t_bool clean)
 {

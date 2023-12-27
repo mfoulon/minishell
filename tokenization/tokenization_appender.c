@@ -12,9 +12,8 @@
 
 #include "token.h"
 
-t_bool handle_separator(char **line, t_token **token_list)
+t_bool	handle_separator(char **line, t_token **token_list)
 {
-	
 	if (!ft_strncmp(*line, "<<", 2))
 		return (append_separator(T_APPEND_OUT, line, token_list));
 	else if (!ft_strncmp(*line, ">>", 2))
@@ -31,7 +30,7 @@ t_bool handle_separator(char **line, t_token **token_list)
 		return (append_separator(T_PIPE, line, token_list));
 }
 
-t_bool append_str(char **line, t_token **token_list)
+t_bool	append_str(char **line, t_token **token_list)
 {
 	t_token	*token;
 	char	*value;
@@ -58,7 +57,7 @@ t_bool append_str(char **line, t_token **token_list)
 	return (add_back_token(token, token_list), true);
 }
 
-t_bool append_separator(t_token_type type, char **line, t_token **token_list)
+t_bool	append_separator(t_token_type type, char **line, t_token **token_list)
 {
 	t_token	*token;
 

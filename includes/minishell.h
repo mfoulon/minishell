@@ -42,6 +42,6 @@
 
 # define PROMPT "minishell$> "
 
-extern  t_minishell     g_minishell;
+extern t_minishell	g_minishell;
 
 #endif

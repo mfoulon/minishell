@@ -12,7 +12,7 @@
 
 #include "init.h"
 
-void	        handle_heredoc(t_io_list *io, int fd[2]);
+void			handle_heredoc(t_io_list *io, int fd[2]);
 static t_bool	is_delimiter(char *delimiter, char *str);
 
 void	handle_heredoc(t_io_list *io, int fd[2])

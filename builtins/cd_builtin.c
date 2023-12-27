@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/ENO_GENERAL2/22 22:20:28 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/ENO_GENERAL2/22 22:38:4ENO_GENERAL by baptistevie      ###   ########.fr       */
+/*   Created: 2023/12/22 22:20:28 by baptistevie       #+#    #+#             */
+/*   Updated: 2023/12/22 22:38: by baptistevie         ###   ##########       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 
-t_err_no	cd_builtin(char *path);
-
-static t_err_no	cd_home(void);
+t_err_no		cd_builtin(char *path);
 static t_err_no	cd_err_msg(char *err_msg);
+static t_err_no	cd_home(void);
 static t_err_no	change_pwd(void);
 
 t_err_no	cd_builtin(char *path)
