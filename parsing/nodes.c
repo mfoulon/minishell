@@ -48,13 +48,14 @@ t_node_type	get_node_type(t_token_type type)
 
 t_io_type	get_io_type(t_token_type type)
 {
-	if (type == T_LESS)
+	if (type == T_REDIR_IN)
 		return (IO_IN);
-	if (type == T_GREAT)
+	else if (type == T_REDIR_OUT)
 		return (IO_OUT);
-	if (type == T_DLESS)
+	else if (type == T_HEREDOC_IN)
 		return (IO_HEREDOC);
-	return (IO_APPEND);
+	else
+		return (IO_APPEND);
 }
 
 void	append_io_node(t_io_list **lst, t_io_list *new)

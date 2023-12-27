@@ -25,4 +25,8 @@ void	clear_token_lst(t_token **lst);
 t_token	*tokenize(void);
 t_token	*token_handler(char *line);
 
+/* inside token_utils.c >> debugging functions */
+char	*get_token_type(t_token *token);
+void	print_token_list(t_token *token_list);
+
 #endif

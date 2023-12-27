@@ -9,8 +9,7 @@ typedef enum s_bool
 	true
 }	t_bool;
 
-typedef enum e_token_type
-{
+typedef enum e_token_type {
 	T_STR,
 	T_PIPE,
 	T_AND,
@@ -19,13 +18,6 @@ typedef enum e_token_type
 	T_REDIR_OUT,
 	T_APPEND_OUT,
 	T_HEREDOC_IN,
-	T_IDENTIFIER,
-	T_LESS,
-	T_GREAT,
-	T_DLESS,
-	T_DGREAT,
-	T_O_PARENT,
-	T_C_PARENT,
 	T_NL
 }	t_token_type;
 

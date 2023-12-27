@@ -38,7 +38,7 @@ void	add_back_token(t_token *token, t_token **token_list)
 {
 	t_token	*curr_token;
 
-	if (!token_list)
+	if (!*token_list)
 	{
 		*token_list = token;
 		return ;

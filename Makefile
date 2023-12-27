@@ -53,10 +53,6 @@ TOKEN		=	tokenization/token_lst.c \
 				tokenization/tokenization_appender.c \
 				tokenization/tokenize.c
 
-UTILS   = utils/init.c \
-					utils/lists.c \
-					utils/recover_path.c
-
 SRCS			=	$(BUILTINS) \
 					$(CLEAR) \
 					$(EXEC) \
@@ -64,7 +60,6 @@ SRCS			=	$(BUILTINS) \
 					$(INIT) \
 					$(PARSING) \
 					$(TOKEN) \
-					$(UTILS) \
 					main.c
 
 OBJS		:=	$(SRCS:.c=.o)

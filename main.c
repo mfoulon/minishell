@@ -12,7 +12,7 @@ static void	ft_init_minishell(char **env)
 	tcgetattr(STDIN_FILENO, &g_minishell.og_term);
 }
 
-static void	ft_start_execution(void)
+static void	start_execution(void)
 {
 	signal(SIGQUIT, handle_sigquit);
 	init_ast(g_minishell.ast);
@@ -48,7 +48,7 @@ int	main(int argc, char **argv, char **env)
 			handle_parse_err();
 			continue ;
 		}
-		ft_start_execution();
+		start_execution();
 	}
 	ft_garbage_collector(NULL, true);
 	return (clean_minishell(), g_minishell.exit_s);

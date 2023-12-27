@@ -17,6 +17,7 @@ t_node	*parse(void)
 	t_node	*ast;
 
 	g_minishell.curr_token = g_minishell.tokens;
+	printf("# __DEBUG : start parsing\n"); // debug
 	ast = expression(0);
 	if (g_minishell.curr_token)
 		return (set_parse_err(E_SYNTAX), ast);
@@ -27,7 +28,7 @@ t_node	*get_cmd(void)
 {
 	if (g_minishell.parse_err.type)
 		return (NULL);
-	if (is_bin_op() || g_minishell.curr_token->type == T_C_PARENT)
+	if (is_bin_op())
 		return (set_parse_err(E_SYNTAX), NULL);
 	return (append_cmd());
 }
@@ -39,6 +40,7 @@ t_node	*expression(int min_prec)
 	int				n_prec;
 	t_token_type	operator;
 
+	printf("# __DEBUG : start expression function\n"); // debug
 	if (g_minishell.parse_err.type || !g_minishell.curr_token)
 		return (NULL);
 	left = get_cmd();
@@ -67,7 +69,7 @@ t_node	*combine(t_token_type operator, t_node *left, t_node *right)
 
 	if (g_minishell.parse_err.type)
 		return (NULL);
-	node = new_node(get_node_type(operator));
+	node = new_node(operator);
 	if (!node)
 		return (set_parse_err(E_MEM), NULL);
 	node->left = left;
