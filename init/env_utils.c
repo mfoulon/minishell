@@ -12,11 +12,13 @@
 
 #include "init.h"
 
+static t_env	*new_envlst(char *key, char *value);
+
 char	*get_envlst_val(char *key)
 {
 	t_env	*envlst;
 
-	envlst = g_minishell.envlst;
+	envlst = g_minishell.env_lst;
 	while (envlst)
 	{
 		if (!ft_strcmp(key, envlst->key))
@@ -30,28 +32,28 @@ void	envlst_addback(t_env *new)
 {
 	t_env	*curr;
 
-	if (!g_minishell.envlst)
+	if (!g_minishell.env_lst)
 	{
-		g_minishell.envlst = new;
+		g_minishell.env_lst = new;
 		return ;
 	}
-	curr = g_minishell.envlst;
+	curr = g_minishell.env_lst;
 	while (curr && curr->next)
 		curr = curr->next;
 	curr->next = new;
 }
 
-void	update_envlst(char *key, char *value, bool create)
+void	update_envlst(char *key, char *value, t_bool create)
 {
 	t_env	*envlst;
 
-	envlst = g_minishell.envlst;
+	envlst = g_minishell.env_lst;
 	while (envlst)
 	{
 		if (!ft_strcmp(key, envlst->key))
 		{
 			if (value)
-				envlst->value = garbage_collector(ft_strdup(value), false);
+				envlst->value = ft_garbage_collector(ft_strdup(value), false);
 			return ;
 		}
 		envlst = envlst->next;
@@ -67,9 +69,9 @@ static t_env	*new_envlst(char *key, char *value)
 	new = (t_env *)ft_calloc(1, sizeof(t_env));
 	if (!new)
 		return (NULL);
-	new->key = garbage_collector(ft_strdup(key), false);
+	new->key = ft_garbage_collector(ft_strdup(key), false);
 	if (value)
-		new->value = garbage_collector(ft_strdup(value), false);
+		new->value = ft_garbage_collector(ft_strdup(value), false);
 	new->next = NULL;
 	return (new);
 }

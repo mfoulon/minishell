@@ -12,7 +12,23 @@
 
 #include "token.h"
 
-static t_token	create_token_list(char *line);
+void	clear_token_lst(t_token **lst)
+{
+	t_token	*curr_node;
+	t_token	*next;
+
+	curr_node = *lst;
+	if (!curr_node)
+		return ;
+	while (curr_node)
+	{
+		free(curr_node->value);
+		next = curr_node->next;
+		free(curr_node);
+		curr_node = next;
+	}
+	*lst = NULL;
+}
 
 t_token		*tokenize(void)
 {
@@ -20,13 +36,13 @@ t_token		*tokenize(void)
 	char			*line;
 
 	line = g_minishell.line;
-	token_list = create_token_list(line);
+	token_list = token_handler(line);
 	free(line);
 	g_minishell.line = NULL;
 	return (token_list);	
 }
 
-static t_token	create_token_list(char *line)
+t_token	*token_handler(char *line)
 {
 	t_bool		error_checker;
 	t_token		*token_list;
@@ -40,9 +56,9 @@ static t_token	create_token_list(char *line)
 		if (is_space(*line))
 			skip_spaces(&line);
 		else if (is_separator(line))
-			error_checker = !handle_separator(&line, token_list);
+			error_checker = !handle_separator(&line, &token_list);
 		else
-			error_checker = !append_str(&line, token_list);
+			error_checker = !append_str(&line, &token_list);
 	}
 	return (token_list);
 }

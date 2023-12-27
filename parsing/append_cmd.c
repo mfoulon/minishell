@@ -49,7 +49,7 @@ t_bool	join_args(char **args)
 		&& g_minishell.curr_token->type == T_STR)
 	{
 		tmp = *args;
-		*args = ft_strjoin_with(*args, g_minishell.curr_token -> value, ' '); //fct strjoin a revoir
+		*args = ft_strjoin_char(*args, g_minishell.curr_token -> value, ' ');
 		if (!*args)
 			return (free(tmp), false);
 		free(tmp);
@@ -68,18 +68,18 @@ t_node	*append_cmd(void)
 	if (!node)
 		return (set_parse_err(E_MEM), NULL);
 	while (g_minishell.curr_token
-		&& (g_minishell.curr_token->type == T_STR;
+		&& (g_minishell.curr_token->type == T_STR
 			|| is_redir(g_minishell.curr_token->type)))
 	{
 		if (g_minishell.curr_token->type == T_STR)
 		{
-			if (!join_args(&(node->args)))
+			if (!join_args(&(node->value)))
 				return (clear_cmd_node(node), set_parse_err(E_MEM), NULL);
 		}
 		else if (is_redir(g_minishell.curr_token->type))
 		{
 			if (!get_io_list(&(node->io_list)))
-				return (free(node->args), free(node), NULL);
+				return (free(node->value), free(node), NULL);
 		}
 	}
 	return (node);

@@ -20,6 +20,10 @@ t_err	check_exec(char *file, t_bool cmd);
 t_err	check_read(char *file);
 t_err	check_write(char *file);
 
+/*	exec_builtin.c  */
+t_err_no	exec_builtin(char **args);
+t_bool	is_builtin(char *arg);
+
 /*	exec_cmd.c  */
 t_err_no	exec_cmd(t_node	*node, t_bool piped);
 void	reset_stds(t_bool piped);

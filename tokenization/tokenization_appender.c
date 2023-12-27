@@ -40,7 +40,8 @@ t_bool append_str(char **line, t_token **token_list)
 	if (!(*line))
 		return (false);
 	i = 0;
-	while ((*line)[i] && !is_separator((*line)[i]))
+	// before -> while ((*line)[i] && !is_separator((*line)[i])) maybe use a tmp_line ?
+	while ((*line)[i] && !is_separator(line[i]))
 	{
 		if (is_quote((*line)[i]) && !skip_quotes(*line, &i))
 			return (false);
@@ -50,7 +51,7 @@ t_bool append_str(char **line, t_token **token_list)
 	value = ft_substr(*line, 0, i);
 	if (!value)
 		return (false);
-	token = new_token(value, T_STR);
+	token = new_token(T_STR, value);
 	if (!token)
 		return (free(value), false);
 	*line += i;
@@ -61,7 +62,7 @@ t_bool append_separator(t_token_type type, char **line, t_token **token_list)
 {
 	t_token	*token;
 
-	token = new_token(type, value);
+	token = new_token(type, NULL);
 	if (!token)
 		return (false);
 	add_back_token(token, token_list);

@@ -12,7 +12,7 @@
 
 #include "builtins.h"
 
-t_err_no	ft_pwd(void)
+t_err_no	pwd_builtin(void)
 {
 	char	*cwd;
 

@@ -60,7 +60,7 @@ char **l_match, char **s)
 		return (false);
 }
 
-bool	is_star_match(char *pattern, char *s)
+t_bool	is_star_match(char *pattern, char *s)
 {
 	char	*l_wildcard;
 	char	*l_match;

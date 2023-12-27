@@ -43,7 +43,7 @@ static t_err_no	exec_child(t_node *node)
 	t_err_no	tmp_status;
 	int			fork_pid;
 
-	g_minishell.sigint_child = true;
+	g_minishell.signint_child = true;
 	fork_pid = fork();
 	if (!fork_pid)
 	{
@@ -60,8 +60,8 @@ static t_err_no	exec_child(t_node *node)
 			== -1)
 			(clean_minishell(), exit(ENO_GENERAL));	//to do
 	}
-	waitpid(fork_pid, &tmp_status, 0);
-	g_minishell.sigint_child = false;
+	waitpid(fork_pid, (int*)&tmp_status, 0);
+	g_minishell.signint_child = false;
 	return (get_exit_status(tmp_status));
 }
 

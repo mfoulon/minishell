@@ -70,7 +70,7 @@ char	*clean_empty_strs(char *str)
 	return (ft_strlcpy(res, tmp, dstsize), free(tmp), res);
 }
 
-bool	is_valid_char(char c)
+t_bool	is_valid_char(char c)
 {
 	if (ft_isalnum(c) || c == '_')
 		return (true);

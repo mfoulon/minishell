@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minshell.h"
+#include "minishell.h"
 
-void	*lst_first(void *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->prev)
-		lst = lst->prev;
-	return (lst);
-}
+// void	*lst_first(void *lst)
+// {
+// 	if (!lst)
+// 		return (NULL);
+// 	while (lst->prev)
+// 		lst = lst->prev;
+// 	return (lst);
+// }

@@ -12,14 +12,14 @@
 
 #include "expand.h"
 
-static bool	match_visibility(char *pattern, char *s)
+static t_bool	match_visibility(char *pattern, char *s)
 {
-	if ((pattern[0] == '.' && s[0] == '.') || pattern[0] != '.' && s[0] != '.')
+	if ((pattern[0] == '.' && s[0] == '.') || (pattern[0] != '.' && s[0] != '.'))
 		return (true);
 	return (false);
 }
 
-static bool	set_dir_entry(struct dirent **entry, DIR *dir)
+static t_bool	set_dir_entry(struct dirent **entry, DIR *dir)
 {
 	*entry = readdir(dir);
 	return (true);

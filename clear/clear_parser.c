@@ -61,6 +61,6 @@ void	clear_ast(t_node **ast)
 {
 	recursive_clear_ast(*ast);
 	*ast = NULL;
-	clear_io_list(&g_minishell.ast);
+	//clear_io_list(&g_minishell.ast);
 	// was -> clear_io_list(&g_minishell.tokens);
 }

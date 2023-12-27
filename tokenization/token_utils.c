@@ -16,31 +16,19 @@ t_bool	is_quote(char c)
 {
 	if (!c)
 		return (false);
-	return (c == '\'' || c == '\"')
-}
-
-t_bool	is_space (char c)
-{
-	if (!c)
-		return (false);
-	retrun (c == ' '
-			|| c == '\t' || c == '\n'
-			|| c == '\r' || c == '\v'
-			|| c == '\f');
+	return (c == '\'' || c == '\"');
 }
 
 t_bool	is_separator(char *str)
 {
-	if (!c)
-		return (false);
 	return (is_space(*str)
 			|| *str == '<' || *str == '>'
 			|| *str == '|' || *str == '\0'
-			ft_strncmp(str, "&&", 2));
+      ||ft_strncmp(str, "&&", 2));
 }
 
 void skip_spaces(char **line)
-{`
+{
 	while (**line && is_space(**line))
 		(*line)++;
 }
@@ -58,4 +46,12 @@ t_bool skip_quotes(char *line, size_t *i)
 		return (true);
 	}
 	return (print_quote_err(quote), false); // print_err to do
+}
+
+void  print_quote_err(char c)
+{
+	ft_putstr_fd("minishell: unexpected EOF while looking for matching `", 2);
+	ft_putchar_fd(c, 2);
+	ft_putstr_fd("'\n", 2);
+	g_minishell.exit_s = 258;
 }

@@ -12,7 +12,7 @@
 
 #include "expand.h"
 
-bool	contains_asterisk(char *s)
+t_bool	contains_asterisk(char *s)
 {
 	size_t	i;
 

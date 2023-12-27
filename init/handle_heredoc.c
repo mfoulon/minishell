@@ -13,7 +13,6 @@
 #include "init.h"
 
 void	        handle_heredoc(t_io_list *io, int fd[2]);
-static void	    handle_heredoc_sigint(int signum);
 static t_bool	is_delimiter(char *delimiter, char *str);
 
 void	handle_heredoc(t_io_list *io, int fd[2])
@@ -44,10 +43,10 @@ void	handle_heredoc(t_io_list *io, int fd[2])
 	exit(0);
 }
 
-static void	handle_heredoc_sigint(int signum)
+void	handle_heredoc_sigint(int signum)
 {
 	(void)signum;
-	ft_clean_ms();
+	clean_minishell();
 	exit(SIGINT);
 }
 

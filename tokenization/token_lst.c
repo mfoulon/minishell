@@ -12,6 +12,16 @@
 
 #include "token.h"
 
+t_bool	is_space (char c)
+{
+	if (!c)
+		return (false);
+	return (c == ' '
+			|| c == '\t' || c == '\n'
+			|| c == '\r' || c == '\v'
+			|| c == '\f');
+}
+
 t_token	*new_token(t_token_type type, char *value)
 {
 	t_token	*new_token;
@@ -35,7 +45,7 @@ void add_back_token(t_token *token, t_token **token_list)
 	}
 	curr_token = *token_list;
 	while (curr_token && curr_token->next)
-		*curr_token = curr_token->next;
+    curr_token = curr_token->next;
 	curr_token->next = token;
 	token->prev = curr_token;
 }

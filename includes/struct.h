@@ -18,7 +18,15 @@ typedef enum e_token_type
     T_REDIR_IN,
     T_REDIR_OUT,
     T_APPEND_OUT,
-    T_HEREDOC_IN
+    T_HEREDOC_IN,
+    T_IDENTIFIER,
+	  T_LESS,
+	  T_GREAT,
+	  T_DLESS,
+	  T_DGREAT,
+	  T_O_PARENT,
+	  T_C_PARENT,
+	  T_NL
 }    t_token_type;
 
 typedef struct s_token

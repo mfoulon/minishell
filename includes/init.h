@@ -25,18 +25,19 @@ t_path	get_path(char *cmd);
 
 /*	handle_heredoc.c  */
 void	handle_heredoc(t_io_list *io, int fd[2]);
+void	handle_heredoc_sigint(int signum);
 
 /*	init_ast.c  */
 void	init_ast(t_node *node);
-void	handle_heredoc(t_io_list *io, int fd[2]);
 
 /*	init_envlst.c  */
 void	init_envlst(void);
 char	*extract_envlst_key(char *str);
 char	*extract_value(char *str);
+char	*extract_key(char *str);
 
 /*	signal.c  */
 void	init_signals(void);
-void	handle_sigquit(void);
+void	handle_sigquit(int n);
 
 #endif

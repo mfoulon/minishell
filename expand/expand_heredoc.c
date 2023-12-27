@@ -24,7 +24,7 @@ static int	heredoc_writer(char *s, size_t i, int fd)
 		i++;
 	if (i != start)
 	{
-		tmp = garbage_collector(ft_substr(s, start, i), false);
+		tmp = ft_garbage_collector(ft_substr(s, start, i), false);
 		tmp = get_envlst_val(tmp);
 		if (tmp)
 			ft_putstr_fd(tmp, fd);

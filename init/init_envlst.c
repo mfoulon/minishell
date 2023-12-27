@@ -19,7 +19,7 @@ void	init_envlst(void)
 	char	*key;
 	char	*value;
 
-	environ = g_minishell.environ;
+	environ = g_minishell.env;
 	if (!environ)
 		return ;
 	i = -1;
@@ -55,10 +55,24 @@ char	*extract_value(char *str)
 		if (str[i] == '=')
 		{
 			i++;
-			return (garbage_collector(
+			return (ft_garbage_collector(
 					ft_substr(str, i, ft_strlen(str) - i), false));
 		}
 		i++;
 	}
 	return (NULL);
+}
+
+char	*extract_key(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '=')
+			return (ft_garbage_collector(ft_substr(str, 0, i), false));
+		i++;
+	}
+	return (ft_strdup(str));
 }

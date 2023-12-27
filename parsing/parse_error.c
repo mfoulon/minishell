@@ -41,7 +41,7 @@ void	handle_parse_err(void)
 			ft_putstr_fd("'\n", 2);
 			g_minishell.exit_s = 258;
 		}
-		ft_clear_ast(&g_minishell.ast);
+		clear_ast(&g_minishell.ast);
 		ft_bzero(&g_minishell.parse_err, sizeof(t_parse_err));
 	}
 }

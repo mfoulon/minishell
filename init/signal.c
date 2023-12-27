@@ -12,26 +12,29 @@
 
 #include "init.h"
 
+static void	handle_sigint(int n);
+
 void	init_signals(void)
 {
 	struct termios	term;
 
-	term = g_minishell.original_term;
+	term = g_minishell.og_term;
 	term.c_lflag &= ~ECHOCTL;
 	tcsetattr(STDIN_FILENO, TCSANOW, &term);
-	g_minishell.heredoc_sigint = false;
+	g_minishell.hd_sigint = false;
 	g_minishell.signint_child = false;
-	signal(SIGINT, ft_sigint_handler);
+	signal(SIGINT, handle_sigint);
 	signal(SIGQUIT, SIG_IGN);
 }
 
-static void	handle_sigint(void)
+static void	handle_sigint(int n)
 {
+  (void)n;
 	if (g_minishell.signint_child)
 	{
 		ft_putstr_fd("\n", 1);
 		g_minishell.signint_child = false;
-		g_minishell.heredoc_sigint = true;
+		g_minishell.hd_sigint = true;
 	}
 	else
 	{
@@ -42,8 +45,9 @@ static void	handle_sigint(void)
 	}
 }
 
-void	handle_sigquit(void)
+void	handle_sigquit(int n)
 {
+  (void)n;
 	ft_putstr_fd("Quit: 3\n", 1);
 }
 

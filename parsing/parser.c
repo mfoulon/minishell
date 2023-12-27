@@ -19,17 +19,15 @@ t_node	*parse(void)
 	g_minishell.curr_token = g_minishell.tokens;
 	ast = expression(0);
 	if (g_minishell.curr_token)
-		return (ft_set_parse_err(E_SYNTAX), ast);
+		return (set_parse_err(E_SYNTAX), ast);
 	return (ast);
 }
 
 t_node	*get_cmd(void)
 {
-	t_node	*node;
-
 	if (g_minishell.parse_err.type)
 		return (NULL);
-	if (is_bin_op(&(g_minishell.curr_token)))
+  	if (is_bin_op() || g_minishell.curr_token->type == T_C_PARENT)
 		return (set_parse_err(E_SYNTAX), NULL);
 	return (append_cmd());
 }
@@ -46,11 +44,11 @@ t_node	*expression(int min_prec)
 	left = get_cmd();
 	if (!left)
 		return (NULL);
-	while (is_bin_op(&(g_minishell.curr_token)) 
-		&& ft_curr_token_prec() >= min_prec)
+	while (is_bin_op() 
+		&& curr_token_prec() >= min_prec)
 	{
 		operator = g_minishell.curr_token->type;
-		ft_get_next_token();
+		get_next_token();
 		if (!g_minishell.curr_token)
 			return (set_parse_err(E_SYNTAX), left);
 		n_prec = ft_prec(operator) + 1;
@@ -59,7 +57,7 @@ t_node	*expression(int min_prec)
 			return (left);
 		left = combine(operator, left, right);
 		if (!left)
-			return (ft_clear_ast(&left), ft_clear_ast(&right), NULL);
+			return (clear_ast(&left), clear_ast(&right), NULL);
 	}
 	return (left);
 }
@@ -70,7 +68,7 @@ t_node	*combine(t_token_type operator, t_node *left, t_node *right)
 
 	if (g_minishell.parse_err.type)
 		return (NULL);
-	node = new_node(ft_get_node_type(operator));
+	node = new_node(get_node_type(operator));
 	if (!node)
 		return (set_parse_err(E_MEM), NULL);
 	node->left = left;

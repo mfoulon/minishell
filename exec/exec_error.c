@@ -33,5 +33,5 @@ t_err_no	print_and_ret_err(t_err err)
 		return (ft_putstr_fd("minishell: exit: ", 2),
 				ft_putstr_fd(err.cause, 2),
 				ft_putstr_fd(": numeric argument required\n", 2), err.no);
-	// return (ENO_SUCCESS);   <- is that useful?
+	return (ENO_SUCCESS); //  <- is that useful?
 }

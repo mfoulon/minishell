@@ -41,12 +41,12 @@ static t_path	get_env_path(char *path, char *cmd)
 	i = -1;
 	while (splited_path[++i])
 	{
-		cmd_path = garbage_collector(ft_strjoin_with_f(
+		cmd_path = ft_garbage_collector(ft_strjoin_char(
 					ft_strdup(splited_path[i]), ft_strdup(cmd), '/'), false);
 		err = check_exec(cmd_path, true);
 		if (err.no == ENO_SUCCESS)
-			return ((t_path){(t_err){ENO_SUCCESS, 42, cmd_path}, cmd_path})
+			return ((t_path){(t_err){ENO_SUCCESS, 42, cmd_path}, cmd_path});
 	}
-	ft_free_char2(splited_path);
+	free_char2(splited_path);
 	return ((t_path){(t_err){ENO_NOT_FOUND, ERRMSG_CMD_NOT_FOUND, cmd}, NULL});
 }

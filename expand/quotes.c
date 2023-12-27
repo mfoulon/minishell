@@ -23,7 +23,7 @@ static size_t	no_quotes_len(char *s)
 	quotes = 0;
 	while (s[++i])
 	{
-		if (s[i] == '\'' || s[i] == '""')
+		if (s[i] == '\'' || s[i] == '"')
 		{
 			if (!quotes)
 				quotes = s[i];
@@ -61,7 +61,7 @@ char	*strip_quotes(char *s)
 		return (NULL);
 	while (s[i])
 	{
-		if (s[i] == '""' || s[i] == '\'')
+		if (s[i] == '"' || s[i] == '\'')
 			no_quotes_filler(s, &i, &j, res);
 		else
 			res[j++] = s[i++];

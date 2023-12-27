@@ -21,6 +21,9 @@ int	check_key(char *str);
 t_err_no  export_builtin(char **argv);
 
 /*  pwd_builtin.c */
-t_err_no	ft_pwd(void);
+t_err_no	pwd_builtin(void);
+
+/*  pwd_builtin.c */
+t_err_no	unset_builtin(char **args);
 
  #endif

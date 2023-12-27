@@ -11,8 +11,8 @@ BUILTINS	=	builtins/env_builtin.c \
 				builtins/cd_builtin.c \
 				builtins/exit_builtin.c \
 				builtins/pwd_builtin.c \
-				builtins/echo_builtin.c
-				#builtins/unset_builtin.c
+				builtins/echo_builtin.c \
+				builtins/unset_builtin.c
 
 CLEAR		=	clear/clean_minishell.c \
 				clear/clear_parser.c \
@@ -21,6 +21,7 @@ CLEAR		=	clear/clean_minishell.c \
 EXEC		=	exec/check.c \
 				exec/exec_cmd.c \
 				exec/exec_error.c \
+				exec/exec_builtin.c \
 				exec/exec.c \
 				exec/redir.c
 

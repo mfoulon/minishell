@@ -27,7 +27,8 @@ t_err_no	exec_builtin(char **args)
 	if (!ft_strcmp(args[0], "unset"))
 		return (unset_builtin(args));
 	if (!ft_strcmp(args[0], "exit"))
-		return (exit_builtin(args));
+    exit_builtin(args);
+		//return (exit_builtin(args));
 	return (ENO_GENERAL);
 }
 
