@@ -23,17 +23,10 @@ t_bool	is_separator(char *str)
 {
 	if (!str)
 		return (false);
-	/* start debug part */
-	printf("# __DEBUG : checking if %c is a separator\n", *str);
-	if (is_space(*str))
-		printf("# __DEBUG : /!\\ is_space error /!\\");
-	/* end debug part */
-	if (is_space(*str)
+	return (is_space(*str)
 		|| *str == '<' || *str == '>'
 		|| *str == '|' || *str == '\0'
-		||!ft_strncmp(str, "&&", 2))
-		return (true);
-	return (false);
+		||!ft_strncmp(str, "&&", 2));
 }
 
 void	skip_spaces(char **line)
