@@ -49,7 +49,9 @@ t_bool	join_args(char **args)
 		&& g_minishell.curr_token->type == T_STR)
 	{
 		tmp = *args;
+		printf("# __DEBUG Join Args before : %s\n", *args); // debug
 		*args = ft_strjoin_char(*args, g_minishell.curr_token -> value, ' ');
+		printf(" __#DEBUG Join Args after : %s\n", *args);  // debug
 		if (!*args)
 			return (free(tmp), false);
 		free(tmp);

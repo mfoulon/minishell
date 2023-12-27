@@ -41,7 +41,7 @@ t_token	*tokenize(void)
 	g_minishell.line = NULL;
 	printf("# __DEBUG : result tokenization\n"); // debug
 	print_token_list(token_list); // debug
-	return (token_list);
+	return (get_first_token(token_list));
 }
 
 t_token	*token_handler(char *line)

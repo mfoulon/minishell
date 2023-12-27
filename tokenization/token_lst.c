@@ -12,6 +12,18 @@
 
 #include "token.h"
 
+t_token	*get_first_token(t_token *token)
+{
+	if (!token)
+		return (NULL);
+	while (token && token->prev)
+	{
+		token = token->prev;
+		printf("# __DEBUG : (gft) Token value %s\n", token->value);
+	}
+	return (token);
+}
+
 t_bool	is_space(char c)
 {
 	if (!c)

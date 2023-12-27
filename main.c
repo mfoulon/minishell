@@ -40,6 +40,8 @@ int	main(int argc, char **argv, char **env)
 		if (g_minishell.line[0])
 			add_history(g_minishell.line);
 		g_minishell.tokens = tokenize();
+		printf("# __DEBUG : global token list\n"); // debug
+		print_token_list(g_minishell.tokens);  //debug
 		if (!g_minishell.tokens)
 			continue ;
 		g_minishell.ast = parse();

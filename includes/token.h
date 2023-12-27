@@ -7,6 +7,7 @@
 t_token	*new_token(t_token_type type, char *value);
 void	add_back_token(t_token *token, t_token **token_list);
 t_bool	is_space(char c);
+t_token	*get_first_token(t_token *token);
 
 /*  token_utils.c  */
 t_bool	is_quote(char c);

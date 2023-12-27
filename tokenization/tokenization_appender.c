@@ -41,8 +41,8 @@ t_bool	append_str(char **line, t_token **token_list)
 	i = 0;
 	
 	//while ((*line)[i] && !is_separator(line[i]))
-	//while ((*line)[i] && !is_separator(&((*line)[i]))) // tokenize bien mais ne fais que la premiere cmd
-	while ((*line)[i] && !is_separator((*line))) // tokenize mal mais fonctionne ?
+	while ((*line)[i] && !is_separator(&((*line)[i]))) // tokenize bien mais ne fais que la premiere cmd
+	//while ((*line)[i] && !is_separator((*line))) // tokenize mal mais fonctionne ?
 	{
 		if (is_quote((*line)[i]) && !skip_quotes(*line, &i))
 			return (false);
