@@ -53,4 +53,3 @@ int	main(int argc, char **argv, char **env)
 	ft_garbage_collector(NULL, true);
 	return (clean_minishell(), g_minishell.exit_s);
 }
-
