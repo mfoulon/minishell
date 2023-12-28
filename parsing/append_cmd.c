@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   append_cmd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:07:39 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/18 18:53:46 by baptistevie      ###   ########.fr       */
+/*   Updated: 2023/12/28 07:53:39 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 12:16:15 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/18 11:06:18 by baptistevie      ###   ########.fr       */
+/*   Updated: 2023/12/28 07:51:42 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ t_token	*tokenize(void)
 	t_token			*token_list;
 	char			*line;
 
-	// printf("# __DEBUG : start tokenization\n"); // debug
+	printf("# __DEBUG : start tokenization\n"); // debug
 	line = g_minishell.line;
 	token_list = token_handler(line);
 	free(line);
 	g_minishell.line = NULL;
-	// printf("# __DEBUG : tokenization ended\n"); // debug
-	// printf("# __DEBUG : result of tokenization\n"); // debug
-	// print_token_list(token_list); // debug
+	printf("# __DEBUG : tokenization ended\n"); // debug
+	printf("# __DEBUG : result of tokenization\n"); // debug
+	print_token_list(token_list); // debug
 	return (get_first_token(token_list));
 }
 

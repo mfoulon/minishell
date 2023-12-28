@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:36:43 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/19 17:06:14 by baptistevie      ###   ########.fr       */
+/*   Updated: 2023/12/28 07:54:42 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ t_node		*expression(int min_prec);
 t_node		*combine(t_token_type operator, t_node *left, t_node *right);
 
 /* DEBUG */
-/*
+
 void	print_node(t_node *node, int margin);
 char	*get_node_type_str(t_node *node);
 void	print_io_list(t_io_list *list, int margin);
 void	print_redirection(t_io_list *redir, int margin);
 void	print_ast(t_node *ast, int margin);
 char	*get_io_type_str(t_io_list *io);
-*/
+
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:58:13 by bvieilhe          #+#    #+#             */
-/*   Updated: 2023/12/20 17:21:06 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2023/12/28 08:12:13 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	handle_heredoc(t_io_list *io, int fd[2])
 		quotes++;
 	while (1)
 	{
-		line = readline("> ");
+		line = readline(HEREDOC);
 		if (!line)
 			break ;
 		if (is_delimiter(io->value, line))

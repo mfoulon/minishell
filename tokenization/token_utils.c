@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:20:40 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/12 12:47:55 by baptistevie      ###   ########.fr       */
+/*   Updated: 2023/12/28 07:52:02 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ void	print_token_list(t_token *token_list)
 	tmp = token_list;
 	while (tmp && tmp->next)
 	{
-		// printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(tmp), tmp->value);
+		printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(tmp), tmp->value);
 		tmp = tmp->next;
 	}
-	// printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(tmp), tmp->value);
+	printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(tmp), tmp->value);
 }

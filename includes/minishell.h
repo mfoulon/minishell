@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:23:26 by mafoulon          #+#    #+#             */
-/*   Updated: 2023/12/20 15:23:28 by mafoulon         ###   ########.fr       */
+/*   Updated: 2023/12/28 08:11:50 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # include "init.h"
 
 # define PROMPT "$> "
+# define HEREDOC "heredoc> "
 
 extern t_minishell	g_minishell;
 

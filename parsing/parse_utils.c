@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:04:01 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/18 17:20:12 by baptistevie      ###   ########.fr       */
+/*   Updated: 2023/12/28 07:53:09 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	curr_token_prec(void)
 }
 
 /* DEBUGING FUNCTIONS */
-/*
+
 void	print_node(t_node *node, int margin)
 {
 	int	i;
@@ -126,4 +126,3 @@ void	print_ast(t_node *ast, int margin)
 	if (ast->left)
 		print_ast(ast->left, margin);
 }
-*/

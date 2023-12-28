@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_lst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
+/*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:24:42 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/07 16:57:48 by baptistevie      ###   ########.fr       */
+/*   Updated: 2023/12/28 07:52:20 by bvieilhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_token	*get_first_token(t_token *token)
 	while (token && token->prev)
 	{
 		token = token->prev;
-		// printf("# __DEBUG : (gft) Token value %s\n", token->value); // debug
+		printf("# __DEBUG : (gft) Token value %s\n", token->value); // debug
 	}
 	return (token);
 }
@@ -53,7 +53,7 @@ void	add_back_token(t_token *token, t_token **token_list)
 	if (!*token_list)
 	{
 		*token_list = token;
-		// print_token(token); // debug
+		print_token(token); // debug
 		return ;
 	}
 	curr_token = *token_list;
@@ -61,12 +61,12 @@ void	add_back_token(t_token *token, t_token **token_list)
 		curr_token = curr_token->next;
 	curr_token->next = token;
 	token->prev = curr_token;
-	// printf("# __DEBUG : last token added\n"); // debug
-	// print_token(token); // debug
+	printf("# __DEBUG : last token added\n"); // debug
+	print_token(token); // debug
 }
 
 /* DEBUG FUNCTIONS */
-/*
+
 void	print_token(t_token *token)
 {
 
@@ -80,4 +80,3 @@ void	print_token(t_token *token)
 	else
 		printf("\t\t NO NEXT TOKEN\n\n");
 }
-*/
