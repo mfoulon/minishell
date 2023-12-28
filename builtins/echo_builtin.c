@@ -21,8 +21,11 @@ t_err_no	echo_builtin(char **args)
 
 	i = 1;
 	flag = false;
-	while (args[++i] != NULL && check_flag(args[i]) == 1)
+	while (args[i] != NULL && check_flag(args[i]) == 1)
+	{
+		i++;
 		flag = true;
+	}
 	while (args[i])
 	{
 		ft_putstr_fd(args[i], 1);

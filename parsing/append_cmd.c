@@ -37,24 +37,23 @@ t_bool	get_io_list(t_io_list **io_list)
 
 t_bool	join_args(char **args)
 {
-	char	*tmp;
-
 	if (g_minishell.parse_err.type)
 		return (false);
 	if (!*args)
+	{
 		*args = ft_strdup("");
+		ft_garbage_collector(*args, false);
+	}
 	if (!*args)
 		return (false);
 	while (g_minishell.curr_token
 		&& g_minishell.curr_token->type == T_STR)
 	{
-		tmp = *args;
-		printf("# __DEBUG Join Args before : %s\n", *args); // debug
-		*args = ft_strjoin_char(*args, g_minishell.curr_token -> value, ' ');
-		printf(" __#DEBUG Join Args after : %s\n", *args);  // debug
+		// printf("# __DEBUG : ft_strjoin_char(\"%s\", \"%s\", \" \")\n", *args, g_minishell.curr_token->value); // debug
+		*args = ft_strjoin_char(*args, g_minishell.curr_token->value, ' ');
+		// printf("# __DEBUG : after ft_strjoin_char() : args = %s\n", *args);  // debug
 		if (!*args)
-			return (free(tmp), false);
-		free(tmp);
+			return (false);
 		get_next_token();
 	}
 	return (true);

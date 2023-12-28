@@ -35,12 +35,14 @@ t_token	*tokenize(void)
 	t_token			*token_list;
 	char			*line;
 
+	// printf("# __DEBUG : start tokenization\n"); // debug
 	line = g_minishell.line;
 	token_list = token_handler(line);
 	free(line);
 	g_minishell.line = NULL;
-	printf("# __DEBUG : result tokenization\n"); // debug
-	print_token_list(token_list); // debug
+	// printf("# __DEBUG : tokenization ended\n"); // debug
+	// printf("# __DEBUG : result of tokenization\n"); // debug
+	// print_token_list(token_list); // debug
 	return (get_first_token(token_list));
 }
 

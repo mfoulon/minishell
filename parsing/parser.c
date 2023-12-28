@@ -17,12 +17,14 @@ t_node	*parse(void)
 	t_node	*ast;
 
 	g_minishell.curr_token = g_minishell.tokens;
-	printf("# __DEBUG : start parsing\n"); // debug
+	// printf("# __DEBUG : start parsing\n"); // debug
 	ast = expression(0);
+	// printf("# __DEBUG : expression function ended\n"); // debug
 	if (g_minishell.curr_token)
 		return (set_parse_err(E_SYNTAX), ast);
-	printf("# __DEBUG : PRINTING AST . . .\n");
-	print_ast(ast, 0);
+	// printf("# __DEBUG : PRINTING AST . . .\n"); // debug
+	// print_ast(ast, 0); // debug
+	// printf("# __DEBUG : parsing ended\n"); // debug
 	return (ast);
 }
 
@@ -42,7 +44,7 @@ t_node	*expression(int min_prec)
 	int				n_prec;
 	t_token_type	operator;
 
-	printf("# __DEBUG : start expression function\n"); // debug
+	// printf("# __DEBUG : start expression function\n"); // debug
 	if (g_minishell.parse_err.type || !g_minishell.curr_token)
 		return (NULL);
 	left = get_cmd();

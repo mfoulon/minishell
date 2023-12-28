@@ -19,7 +19,7 @@ t_token	*get_first_token(t_token *token)
 	while (token && token->prev)
 	{
 		token = token->prev;
-		printf("# __DEBUG : (gft) Token value %s\n", token->value);
+		// printf("# __DEBUG : (gft) Token value %s\n", token->value); // debug
 	}
 	return (token);
 }
@@ -53,6 +53,7 @@ void	add_back_token(t_token *token, t_token **token_list)
 	if (!*token_list)
 	{
 		*token_list = token;
+		// print_token(token); // debug
 		return ;
 	}
 	curr_token = *token_list;
@@ -60,4 +61,23 @@ void	add_back_token(t_token *token, t_token **token_list)
 		curr_token = curr_token->next;
 	curr_token->next = token;
 	token->prev = curr_token;
+	// printf("# __DEBUG : last token added\n"); // debug
+	// print_token(token); // debug
 }
+
+/* DEBUG FUNCTIONS */
+/*
+void	print_token(t_token *token)
+{
+
+	printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(token), token->value);
+	if (token->prev)
+		printf("\t\tPREV => TYPE : %s\tVALUE : %s\n", get_token_type(token->prev), token->prev->value);
+	else
+		printf("\t\t NO PREVIOUS TOKEN\n");
+	if (token->next)
+		printf("\t\tPREV => TYPE : %s\tVALUE : %s\n\n", get_token_type(token->next), token->next->value);
+	else
+		printf("\t\t NO NEXT TOKEN\n\n");
+}
+*/

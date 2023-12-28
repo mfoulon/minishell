@@ -85,15 +85,18 @@ char	*get_token_type(t_token *token)
 
 void	print_token_list(t_token *token_list)
 {
+	t_token	*tmp;
+
 	if (!token_list)
 	{
 		printf("token_list is empty\n");
 		return;
 	}
-	while (token_list && token_list->next)
+	tmp = token_list;
+	while (tmp && tmp->next)
 	{
-		printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(token_list), token_list->value);
-		*token_list = *token_list->next;
+		// printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(tmp), tmp->value);
+		tmp = tmp->next;
 	}
-	printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(token_list), token_list->value);
+	// printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(tmp), tmp->value);
 }

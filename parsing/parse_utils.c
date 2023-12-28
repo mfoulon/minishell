@@ -52,7 +52,7 @@ int	curr_token_prec(void)
 }
 
 /* DEBUGING FUNCTIONS */
-
+/*
 void	print_node(t_node *node, int margin)
 {
 	int	i;
@@ -91,26 +91,23 @@ char	*get_io_type_str(t_io_list *io)
 
 void	print_io_list(t_io_list *list, int margin)
 {
-	int	i;
-
 	if (!list)
 		return;
 	while (list->next)
 	{
-		i = -1;
-		while (++i < margin)
-			printf("\t");
-		print_redirection(list);
+		print_redirection(list, margin);
 		list = list->next;
 	}
+	print_redirection(list, margin);
+}
+
+void	print_redirection(t_io_list *redir, int margin)
+{
+	int	i;
+
 	i = -1;
 	while (++i < margin)
 		printf("\t");
-	print_redirection(list);
-}
-
-void	print_redirection(t_io_list *redir)
-{
 	if (!redir)
 	{
 		printf("no redirection");
@@ -129,3 +126,4 @@ void	print_ast(t_node *ast, int margin)
 	if (ast->left)
 		print_ast(ast->left, margin);
 }
+*/

@@ -40,7 +40,7 @@
 # include "clear.h"
 # include "init.h"
 
-# define PROMPT "minishell$> "
+# define PROMPT "$> "
 
 extern t_minishell	g_minishell;
 
