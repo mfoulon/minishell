@@ -4,7 +4,7 @@ LIBFT		:= libft.a
 LIBFT_PATH	:= "libft"
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread
+CFLAGS = -Wall -Wextra -Werror -g3
 
 BUILTINS	=	builtins/env_builtin.c \
 				builtins/export_builtin.c \

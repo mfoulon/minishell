@@ -41,12 +41,30 @@ static t_path	get_env_path(char *path, char *cmd)
 	i = -1;
 	while (splited_path[++i])
 	{
-		cmd_path = ft_garbage_collector(ft_strjoin_char(
+		cmd_path = ft_garbage_collector(ft_strjoin_char_free(
 					ft_strdup(splited_path[i]), ft_strdup(cmd), '/'), false);
 		err = check_exec(cmd_path, true);
 		if (err.no == ENO_SUCCESS)
+		{
+			free_char2(splited_path);
 			return ((t_path){(t_err){ENO_SUCCESS, 42, cmd_path}, cmd_path});
+		}
 	}
 	free_char2(splited_path);
 	return ((t_path){(t_err){ENO_NOT_FOUND, ERRMSG_CMD_NOT_FOUND, cmd}, NULL});
+}
+
+/* DEBUG FUNCTIONS */
+
+void	print_char2(char **char2)
+{
+	int	i;
+
+	printf("# __DEBUG : printing envlst\n");
+	i = -1;
+	while (char2[++i])
+	{
+		printf("\t%s", char2[i]);
+	}
+	printf("# __DEBUG : envlst printed\n");
 }

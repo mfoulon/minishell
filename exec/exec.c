@@ -22,7 +22,7 @@ t_err_no	exec_node(t_node *tree, t_bool piped)
 	if (!tree)
 		return (ENO_GENERAL);
 	if (tree->type == N_PIPE)
-		exec_pipe(tree);
+		return (exec_pipe(tree));
 	else if (tree->type == N_OR)
 	{
 		status = exec_node(tree->left, false);
@@ -38,7 +38,7 @@ t_err_no	exec_node(t_node *tree, t_bool piped)
 		return ((int)status);
 	}
 	else
-		exec_cmd(tree, piped);
+		return (exec_cmd(tree, piped));
 	return (ENO_GENERAL);
 }
 

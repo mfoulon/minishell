@@ -36,11 +36,12 @@ t_bool	is_builtin(char *arg)
 {
 	if (!arg)
 		return (false);
+//	printf(" #__DEBUG : is builtin (%s)\n", arg); // debug
 	return (!ft_strcmp(arg, "echo")
 		|| !ft_strcmp(arg, "cd")
 		|| !ft_strcmp(arg, "exit")
 		|| !ft_strcmp(arg, "pwd")
 		|| !ft_strcmp(arg, "export")
-		|| !ft_strcmp(arg, "unset")
+		|| !ft_strcmp(arg, "unset")		
 		|| !ft_strcmp(arg, "env"));
 }

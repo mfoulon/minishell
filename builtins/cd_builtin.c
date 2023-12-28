@@ -53,6 +53,7 @@ static t_err_no	change_pwd(void)
 	char	*cwd;
 
 	cwd = getcwd(NULL, 0);
+	ft_garbage_collector(cwd, false);
 	if (!cwd)
 		return (ENO_GENERAL);
 	return (update_envlst("PWD", cwd, false), 0);

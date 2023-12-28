@@ -60,7 +60,7 @@ void	print_quote_err(char c)
 
 
 /* DEBUGING FUNCTIONS */
-
+/*
 char	*get_token_type(t_token *token)
 {
 	if (token->type == T_STR)
@@ -99,4 +99,4 @@ void	print_token_list(t_token *token_list)
 		tmp = tmp->next;
 	}
 	printf("\tTYPE : %s\tVALUE : %s\n", get_token_type(tmp), tmp->value);
-}
+}*/

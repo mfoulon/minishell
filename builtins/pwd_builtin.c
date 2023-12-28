@@ -20,6 +20,7 @@ t_err_no	pwd_builtin(void)
 	cwd = getcwd(cwd, 0);
 	if (!cwd)
 		return (ENO_GENERAL);
+	ft_garbage_collector(cwd, false);
 	ft_putstr_fd(cwd, 1);
 	ft_putstr_fd("\n", 1);
 	return (ENO_SUCCESS);

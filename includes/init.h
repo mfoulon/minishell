@@ -40,4 +40,8 @@ char	*extract_key(char *str);
 void	init_signals(void);
 void	handle_sigquit(int n);
 
+/* debug functions */
+
+void	print_char2(char **char2);
+
 #endif

@@ -50,7 +50,9 @@ int	main(int argc, char **argv, char **env)
 			handle_parse_err();
 			continue ;
 		}
+		//clear_token_lst(&g_minishell.tokens);
 		start_execution();
+
 	}
 	ft_garbage_collector(NULL, true);
 	return (clean_minishell(), g_minishell.exit_s);

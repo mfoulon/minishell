@@ -14,7 +14,7 @@
 
 static t_bool	is_str_a_number(char *str);
 static int		exittoi(char *str);
-static void		skip_spaces_and_get_sign(char **str, int *sign);
+static void	skip_spaces_and_get_sign(char **str, int *sign);
 
 void	exit_builtin(char **args)
 {

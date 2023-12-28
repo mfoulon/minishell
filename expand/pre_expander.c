@@ -40,7 +40,7 @@ char	*handle_dquotes(char *s, size_t *i)
 
 	res = ft_strdup("\"");
 	(*i)++;
-	while (res[*i] != '\"')
+	while (s[*i] != '\"')
 	{
 		if (s[*i] == '$')
 			res = ft_strjoin_free(res, handle_dollar(s, i));

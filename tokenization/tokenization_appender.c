@@ -50,6 +50,7 @@ t_bool	append_str(char **line, t_token **token_list)
 			i++;
 	}
 	value = ft_substr(*line, 0, i);
+	//ft_garbage_collector(value, false);
 	if (!value)
 		return (false);
 	token = new_token(T_STR, value);
