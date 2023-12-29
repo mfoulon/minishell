@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 10:55:18 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/20 14:49:34 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:27:01 by mafoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_err_no	exec_node(t_node *tree, t_bool piped)
 	t_err_no	status;
 
 	if (!tree)
-		return (ENO_GENERAL);
+		return (g_minishell.exit_s);
 	if (tree->type == N_PIPE)
 		return (exec_pipe(tree));
 	else if (tree->type == N_OR)

@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 09:20:40 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/28 07:52:02 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:27:23 by mafoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,8 @@ void	print_quote_err(char c)
 	ft_putstr_fd("minishell: unexpected EOF while looking for matching `", 2);
 	ft_putchar_fd(c, 2);
 	ft_putstr_fd("'\n", 2);
-	g_minishell.exit_s = 258;
+	g_minishell.exit_s = 2;
 }
-
 
 /* DEBUGING FUNCTIONS */
 /*

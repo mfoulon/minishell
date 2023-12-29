@@ -19,7 +19,7 @@ static int	heredoc_writer(char *s, size_t i, int fd)
 
 	start = ++i;
 	if (s[i] == '?')
-		return (ft_putnbr_fd(g_minishell.exit_s, fd), 2);
+		return (ft_putnbr_fd(g_minishell.exit_s % 256, fd), 2);
 	while (s[i] && s[i] != '$' && s[i] != ' ')
 		i++;
 	if (i != start)

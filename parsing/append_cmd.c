@@ -48,11 +48,8 @@ t_bool	join_args(char **args)
 	while (g_minishell.curr_token
 		&& g_minishell.curr_token->type == T_STR)
 	{
-		// printf("# __DEBUG : ft_strjoin_char(\"%s\", \"%s\", \" \")\n", *args, g_minishell.curr_token->value); // debug
 		tmp = *args;
 		*args = ft_strjoin_char(*args, g_minishell.curr_token->value, ' ');
-		//ft_garbage_collector(args, false);
-		// printf("# __DEBUG : after ft_strjoin_char() : args = %s\n", *args);  // debug
 		if (!*args)
 			return (free(tmp), false);
 		free(tmp);

@@ -16,10 +16,13 @@ static void	clear_envlst(void);
 
 void	clean_minishell(void)
 {
+	modify_shlvl(g_minishell.env, false);
 	ft_garbage_collector(NULL, true);
 	clear_ast(&g_minishell.ast);
 	clear_envlst();
 	rl_clear_history();
+	close(g_minishell.stdin);
+	close(g_minishell.stdout);
 	tcsetattr(STDIN_FILENO, TCSANOW, &g_minishell.og_term);
 }
 

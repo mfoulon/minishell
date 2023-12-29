@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:21:55 by bvieilhe          #+#    #+#             */
-/*   Updated: 2023/12/20 17:27:15 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:32:10 by mafoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	handle_sigint(int n)
 		ft_putstr_fd("\n", 1);
 		g_minishell.signint_child = false;
 		g_minishell.hd_sigint = true;
+		g_minishell.exit_s = 130;
 	}
 	else
 	{
@@ -49,4 +50,10 @@ void	handle_sigquit(int n)
 {
 	(void)n;
 	ft_putstr_fd("Quit: 3\n", 1);
+}
+
+void	close_fds(int fd[2])
+{
+	close(fd[0]);
+	close(fd[1]);
 }

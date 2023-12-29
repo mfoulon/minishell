@@ -29,9 +29,12 @@ t_err_no	print_and_ret_err(t_err err)
 	else if (err.msg == ERRMSG_TOO_MANY_ARGS)
 		return (ft_putstr_fd("minishell: exit: too many arguments\n", 2),
 			err.no);
-	else if (err.msg == ERRMSG_NUMERIC_REQUI)
-		return (ft_putstr_fd("minishell: exit: ", 2),
-			ft_putstr_fd(err.cause, 2),
-			ft_putstr_fd(": numeric argument required\n", 2), err.no);
+	else if (err.msg == ERRMSG_NUMERIC_REQUI && err.cause)
+	{		
+		ft_putstr_fd("minishell: exit: ", 2);
+		ft_putstr_fd(err.cause, 2);
+		ft_putstr_fd(": numeric argument required\n", 2);
+		return (err.no);
+	}
 	return (ENO_SUCCESS);
 }

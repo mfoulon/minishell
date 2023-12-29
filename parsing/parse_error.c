@@ -39,7 +39,7 @@ void	handle_parse_err(void)
 			ft_putstr_fd("minishell: syntax error near unexpected token `", 2);
 			ft_putstr_fd(types[token_type], 2);
 			ft_putstr_fd("'\n", 2);
-			g_minishell.exit_s = 258;
+			g_minishell.exit_s = 2;
 		}
 		clear_ast(&g_minishell.ast);
 		ft_bzero(&g_minishell.parse_err, sizeof(t_parse_err));

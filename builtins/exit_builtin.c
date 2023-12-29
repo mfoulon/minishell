@@ -6,15 +6,15 @@
 /*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 23:08:04 by baptistevie       #+#    #+#             */
-/*   Updated: 2023/12/25 21:38:27 by baptistevie      ###   ########.fr       */
+/*   Updated: 2023/12/29 19:36:20 by mafoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 
 static t_bool	is_str_a_number(char *str);
-static int		exittoi(char *str);
-static void	skip_spaces_and_get_sign(char **str, int *sign);
+static int		exittoi(char *s, int sign);
+static void		skip_spaces_and_get_sign(char *s, int *i, int *sign);
 
 void	exit_builtin(char **args)
 {
@@ -30,8 +30,10 @@ void	exit_builtin(char **args)
 			(clean_minishell(), exit(exit_s));
 		}
 		else
-			exit_s = exittoi(args[1]);
+			exit_s = exittoi(args[1], 1);
 	}
+	if (g_minishell.hd_sigint)
+		exit_s = 130;
 	(clean_minishell(), exit(exit_s));
 }
 
@@ -44,39 +46,42 @@ static t_bool	is_str_a_number(char *str)
 	return (true);
 }
 
-static void	skip_spaces_and_get_sign(char **str, int *sign)
+static void	skip_spaces_and_get_sign(char *s, int *i, int *sign)
 {
-	while (**str && is_space(**str))
-		(*str)++;
-	if (**str == '+' || **str == '-')
+	while (s[*i] && s[*i] == ' ')
+		(*i)++;
+	if (s[*i] == '+' || s[*i] == '-')
 	{
-		if (**str == '-')
+		if (s[*i] == '-')
 			*sign *= -1;
-		(*str)++;
+		(*i)++;
 	}
 }
 
-static int	exittoi(char *str)
+static int	exittoi(char *s, int sign)
 {
-	char				*tmp;
-	int					sign;
+	int					i;
+	int					exit_s;
 	unsigned long long	result;
 
-	tmp = str;
-	sign = 1;
-	skip_spaces_and_get_sign(&tmp, &sign);
-	if (!is_str_a_number(tmp))
-		(clean_minishell(),
-			exit(print_and_ret_err((t_err){ENO_EXEC_255,
-					ERRMSG_NUMERIC_REQUI, str})));
-	result = 0;
-	while (*(++tmp))
+	i = -1;
+	skip_spaces_and_get_sign(s, &i, &sign);
+	if (!is_str_a_number(s + i))
 	{
-		result = (result * 10) + (*tmp - '0');
+		exit_s = print_and_ret_err((t_err){ENO_EXEC_255,
+				ERRMSG_NUMERIC_REQUI, s});
+		(clean_minishell(), exit(exit_s));
+	}
+	result = 0;
+	while (s[++i])
+	{
+		result = (result * 10) + (s[i] - '0');
 		if (result > LONG_MAX)
-			(clean_minishell(),
-				exit(print_and_ret_err((t_err){ENO_EXEC_255,
-						ERRMSG_NUMERIC_REQUI, str})));
+		{
+			exit_s = print_and_ret_err((t_err){ENO_EXEC_255,
+					ERRMSG_NUMERIC_REQUI, s});
+			(clean_minishell(), exit(exit_s));
+		}
 	}
 	return ((result * sign) % 256);
 }

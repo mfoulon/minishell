@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mafoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/29 19:23:47 by mafoulon          #+#    #+#             */
+/*   Updated: 2023/12/29 19:37:52 by mafoulon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 t_minishell	g_minishell;
@@ -6,6 +18,7 @@ static void	ft_init_minishell(char **env)
 {
 	ft_memset(&g_minishell, 0, sizeof(t_minishell));
 	g_minishell.env = env;
+	modify_shlvl(g_minishell.env, true);
 	init_envlst();
 	g_minishell.stdin = dup(0);
 	g_minishell.stdout = dup(1);
@@ -40,8 +53,6 @@ int	main(int argc, char **argv, char **env)
 		if (g_minishell.line[0])
 			add_history(g_minishell.line);
 		g_minishell.tokens = tokenize();
-		// printf("# __DEBUG : global token list\n"); // debug
-		// print_token_list(g_minishell.tokens);  //debug
 		if (!g_minishell.tokens)
 			continue ;
 		g_minishell.ast = parse();
@@ -50,9 +61,7 @@ int	main(int argc, char **argv, char **env)
 			handle_parse_err();
 			continue ;
 		}
-		//clear_token_lst(&g_minishell.tokens);
 		start_execution();
-
 	}
 	ft_garbage_collector(NULL, true);
 	return (clean_minishell(), g_minishell.exit_s);

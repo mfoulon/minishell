@@ -24,11 +24,7 @@ static char	*pre_expander(char *s)
 		if (s[i] == '\'')
 			res = ft_strjoin_free(res, handle_squotes(s, &i));
 		else if (s[i] == '"')
-		{
-			//printf("# __DEBUG : before dquotes: res = %s\n", res); //debug
 			res = ft_strjoin_free(res, handle_dquotes(s, &i));
-			//printf("# __DEBUG : after dquotes: res = %s\n", res); // debug
-		}
 		else if (s[i] == '$')
 			res = ft_strjoin_free(res, handle_dollar(s, &i));
 		else

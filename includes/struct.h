@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   struct.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mafoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/29 19:24:23 by mafoulon          #+#    #+#             */
+/*   Updated: 2023/12/29 19:24:50 by mafoulon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCT_H
 # define STRUCT_H
 
@@ -93,6 +105,7 @@ typedef enum e_err_no
 	ENO_GENERAL,
 	ENO_CANT_EXEC = 126,
 	ENO_NOT_FOUND,
+	ENO_SIGINT = 130,
 	ENO_EXEC_255 = 255
 }	t_err_no;
 
@@ -128,7 +141,7 @@ typedef struct s_minishell
 	t_token				*tokens;
 	t_token				*curr_token;
 	t_node				*ast;
-	t_err_no					exit_s;
+	t_err_no			exit_s;
 	t_bool				signint_child;
 	t_parse_err			parse_err;
 	int					stdin;

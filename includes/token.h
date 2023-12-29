@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   token.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mafoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/29 19:25:26 by mafoulon          #+#    #+#             */
+/*   Updated: 2023/12/29 19:35:44 by mafoulon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef TOKEN_H
 # define TOKEN_H
 
@@ -30,7 +42,6 @@ t_token	*token_handler(char *line);
 
 char	*get_token_type(t_token *token);
 void	print_token_list(t_token *token_list);
-void	print_token(t_token *token); // inside token_lst.c
-
+void	print_token(t_token *token);
 
 #endif

@@ -34,7 +34,6 @@ static char	**globber_help(char *s)
 	DIR				*dir;
 
 	mc = match_count(s);
-	// printf("# __DEBUG: mc = %ld\n", mc); // debug
 	if (!contains_asterisk(s) || !mc)
 	{
 		res = (char **)ft_calloc(mc + 2, sizeof(char *));

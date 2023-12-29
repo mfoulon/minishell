@@ -52,6 +52,7 @@ static void	init_leaf(t_node *node)
 			if (leave_leaf(fd, &pid))
 				return ;
 			io->fd_heredoc = fd[0];
+			close_fds(fd);
 		}
 		else
 			io->exp_value = expander(io->value);
@@ -64,7 +65,7 @@ static t_bool	leave_leaf(int fd[2], int *pid)
 	waitpid(*pid, pid, 0);
 	signal(SIGQUIT, handle_sigquit);
 	g_minishell.signint_child = false;
-	close(fd[1]);
+	close_fds(fd);
 	if (WIFEXITED(*pid) && WEXITSTATUS(*pid) == SIGINT)
 		return (true);
 	return (false);

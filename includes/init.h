@@ -35,10 +35,12 @@ void	init_envlst(void);
 char	*extract_envlst_key(char *str);
 char	*extract_value(char *str);
 char	*extract_key(char *str);
+void	modify_shlvl(char **env, t_bool increase);
 
 /*	signal.c  */
 void	init_signals(void);
 void	handle_sigquit(int n);
+void	close_fds(int fd[2]);
 
 /* debug functions */
 

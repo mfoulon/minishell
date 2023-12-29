@@ -6,7 +6,7 @@
 /*   By: bvieilhe <bvieilhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:57:40 by bvieilhe          #+#    #+#             */
-/*   Updated: 2023/12/20 17:03:41 by bvieilhe         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:31:54 by mafoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,9 @@ void	print_char2(char **char2)
 {
 	int	i;
 
-	printf("# __DEBUG : printing envlst\n");
 	i = -1;
 	while (char2[++i])
 	{
 		printf("\t%s", char2[i]);
 	}
-	printf("# __DEBUG : envlst printed\n");
 }

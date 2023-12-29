@@ -6,7 +6,7 @@
 /*   By: baptistevieilhescaze <baptistevieilhesc    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:46:06 by bvieilhe          #+#    #+#             */
-/*   Updated: 2023/12/12 12:45:59 by baptistevie      ###   ########.fr       */
+/*   Updated: 2023/12/29 19:28:14 by mafoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_bool	handle_separator(char **line, t_token **token_list)
 {
-	if (!ft_strncmp(*line, "<<", 2))
+	if (!ft_strncmp(*line, ">>", 2))
 		return (append_separator(T_APPEND_OUT, line, token_list));
-	else if (!ft_strncmp(*line, ">>", 2))
+	else if (!ft_strncmp(*line, "<<", 2))
 		return (append_separator(T_HEREDOC_IN, line, token_list));
 	else if (!ft_strncmp(*line, "<", 1))
 		return (append_separator(T_REDIR_IN, line, token_list));
@@ -39,10 +39,7 @@ t_bool	append_str(char **line, t_token **token_list)
 	if (!(*line))
 		return (false);
 	i = 0;
-	
-	//while ((*line)[i] && !is_separator(line[i]))
-	while ((*line)[i] && !is_separator(&((*line)[i]))) // tokenize bien mais ne fais que la premiere cmd
-	//while ((*line)[i] && !is_separator((*line))) // tokenize mal mais fonctionne ?
+	while ((*line)[i] && !is_separator(&((*line)[i])))
 	{
 		if (is_quote((*line)[i]) && !skip_quotes(*line, &i))
 			return (false);
@@ -50,7 +47,6 @@ t_bool	append_str(char **line, t_token **token_list)
 			i++;
 	}
 	value = ft_substr(*line, 0, i);
-	//ft_garbage_collector(value, false);
 	if (!value)
 		return (false);
 	token = new_token(T_STR, value);
