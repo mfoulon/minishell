@@ -6,52 +6,52 @@ LIBFT_PATH	:= "libft"
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 
-BUILTINS	=	builtins/env_builtin.c \
-				builtins/export_builtin.c \
-				builtins/cd_builtin.c \
-				builtins/exit_builtin.c \
-				builtins/pwd_builtin.c \
-				builtins/echo_builtin.c \
-				builtins/unset_builtin.c
+BUILTINS	=	srcs/builtins/env_builtin.c \
+				srcs/builtins/export_builtin.c \
+				srcs/builtins/cd_builtin.c \
+				srcs/builtins/exit_builtin.c \
+				srcs/builtins/pwd_builtin.c \
+				srcs/builtins/echo_builtin.c \
+				srcs/builtins/unset_builtin.c
 
-CLEAR		=	clear/clean_minishell.c \
-				clear/clear_parser.c \
-				clear/garbage_collector.c
+CLEAR		=	srcs/clear/clean_minishell.c \
+				srcs/clear/clear_parser.c \
+				srcs/clear/garbage_collector.c
 
-EXEC		=	exec/check.c \
-				exec/exec_cmd.c \
-				exec/exec_error.c \
-				exec/exec_builtin.c \
-				exec/exec.c \
-				exec/redir.c
+EXEC		=	srcs/exec/check.c \
+				srcs/exec/exec_cmd.c \
+				srcs/exec/exec_error.c \
+				srcs/exec/exec_builtin.c \
+				srcs/exec/exec.c \
+				srcs/exec/redir.c
 
-EXPAND		=	expand/asterisks.c \
-				expand/expander_split.c \
-				expand/expander_utils.c \
-				expand/expander.c \
-				expand/globber_utils.c \
-				expand/globber.c \
-				expand/expand_heredoc.c \
-				expand/pre_expander.c \
-				expand/quotes.c
+EXPAND		=	srcs/expand/asterisks.c \
+				srcs/expand/expander_split.c \
+				srcs/expand/expander_utils.c \
+				srcs/expand/expander.c \
+				srcs/expand/globber_utils.c \
+				srcs/expand/globber.c \
+				srcs/expand/expand_heredoc.c \
+				srcs/expand/pre_expander.c \
+				srcs/expand/quotes.c
 
-INIT		=	init/env_utils.c \
-				init/get_path.c \
-				init/handle_heredoc.c \
-				init/init_ast.c \
-				init/init_envlst.c \
-				init/signal.c
+INIT		=	srcs/init/env_utils.c \
+				srcs/init/get_path.c \
+				srcs/init/handle_heredoc.c \
+				srcs/init/init_ast.c \
+				srcs/init/init_envlst.c \
+				srcs/init/signal.c
 
-PARSING		=	parsing/append_cmd.c \
-				parsing/nodes.c \
-				parsing/parse_error.c \
-				parsing/parse_utils.c \
-				parsing/parser.c
+PARSING		=	srcs/parsing/append_cmd.c \
+				srcs/parsing/nodes.c \
+				srcs/parsing/parse_error.c \
+				srcs/parsing/parse_utils.c \
+				srcs/parsing/parser.c
 
-TOKEN		=	tokenization/token_lst.c \
-				tokenization/token_utils.c \
-				tokenization/tokenization_appender.c \
-				tokenization/tokenize.c
+TOKEN		=	srcs/tokenization/token_lst.c \
+				srcs/tokenization/token_utils.c \
+				srcs/tokenization/tokenization_appender.c \
+				srcs/tokenization/tokenize.c
 
 SRCS			=	$(BUILTINS) \
 					$(CLEAR) \

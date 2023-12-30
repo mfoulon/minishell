@@ -30,6 +30,7 @@ void		reset_stds(t_bool piped);
 
 /*	exec_error.c  */
 t_err_no	print_and_ret_err(t_err err);
+t_err_no	print_and_ret_err2(t_err err);
 
 /*	exec.c  */
 t_err_no	exec_node(t_node *tree, t_bool piped);
